@@ -1,17 +1,18 @@
 import { HeroSection } from "@/components/hero-section-dark";
+import Link from "next/link";
 
 // Component Hero Section Demo
 function HeroSectionDemo() {
   return (
     <HeroSection
-      title="Website Đặt Phòng Trọ"
+      title="Hệ Thống Quản Lý Nhà Trọ"
       subtitle={{
-        regular: "Tìm kiếm và đặt phòng trọ ",
-        gradient: "nhanh chóng, dễ dàng",
+        regular: "Quản lý nhà trọ ",
+        gradient: "hiệu quả, đơn giản",
       }}
-      description="Kết nối chủ nhà và người thuê trọ một cách hiệu quả. Tìm kiếm phòng trọ phù hợp với nhu cầu và ngân sách của bạn chỉ với vài cú nhấp chuột."
-      ctaText="Tìm Phòng Ngay"
-      ctaHref="/search"
+      description="Giải pháp toàn diện giúp quản lý dãy trọ, người thuê, hợp đồng, hóa đơn và dịch vụ một cách tối ưu."
+      ctaText="Đăng ký ngay"
+      ctaHref="/daytro"
       bottomImage={{
         light: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?q=80&w=2940&auto=format&fit=crop",
         dark: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?q=80&w=2940&auto=format&fit=crop",
@@ -32,6 +33,7 @@ interface FeatureCardProps {
   icon: string;
   title: string;
   description: string;
+  link: string;
 }
 
 // Định nghĩa interface cho RoomCard
@@ -50,77 +52,97 @@ export default function Home() {
       <HeroSectionDemo />
       
       <section className="py-16 px-4 md:px-8 max-w-screen-xl mx-auto">
-        <h2 className="text-3xl font-bold text-center mb-12">Tính Năng Nổi Bật</h2>
+        <h2 className="text-3xl font-bold text-center mb-12">Tính Năng Quản Lý</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <FeatureCard 
-            icon="🔍"
-            title="Tìm Kiếm Thông Minh" 
-            description="Tìm kiếm theo khu vực, giá cả, diện tích và tiện nghi để tìm phòng phù hợp nhất."
-          />
-          <FeatureCard 
-            icon="📅"
-            title="Đặt Phòng Trực Tuyến" 
-            description="Đặt phòng nhanh chóng, tiện lợi và nhận phản hồi ngay lập tức từ chủ nhà."
-          />
-          <FeatureCard 
-            icon="⭐"
-            title="Đánh Giá Và Bình Luận" 
-            description="Xem đánh giá từ người thuê khác và chia sẻ trải nghiệm của bạn."
-          />
-          <FeatureCard 
             icon="🏠"
-            title="Quản Lý Phòng Trọ" 
-            description="Chủ nhà có thể đăng tin, quản lý thông tin phòng trọ một cách dễ dàng."
+            title="Quản Lý Dãy Trọ" 
+            description="Quản lý thông tin dãy trọ, số phòng, tình trạng sử dụng và doanh thu."
+            link="/daytro"
           />
           <FeatureCard 
-            icon="💳"
-            title="Thanh Toán An Toàn" 
-            description="Hỗ trợ nhiều phương thức thanh toán bảo mật cho người thuê và chủ nhà."
+            icon="👨‍👩‍👧‍👦"
+            title="Quản Lý Người Thuê" 
+            description="Quản lý thông tin chi tiết người thuê, phân bổ phòng và theo dõi thời gian thuê."
+            link="/nguoithue"
           />
           <FeatureCard 
-            icon="📱"
-            title="Trải Nghiệm Đa Nền Tảng" 
-            description="Sử dụng trên mọi thiết bị từ máy tính đến điện thoại di động."
+            icon="📝"
+            title="Quản Lý Hợp Đồng" 
+            description="Tạo và quản lý hợp đồng thuê trọ, theo dõi thời hạn và điều khoản."
+            link="/hopdong"
+          />
+          <FeatureCard 
+            icon="💵"
+            title="Quản Lý Hóa Đơn" 
+            description="Theo dõi thanh toán, xuất hóa đơn tiền trọ và dịch vụ hàng tháng."
+            link="/hoadon"
+          />
+          <FeatureCard 
+            icon="⚡"
+            title="Quản Lý Dịch Vụ" 
+            description="Quản lý các dịch vụ cung cấp như điện, nước, wifi và các tiện ích khác."
+            link="/dichvu"
+          />
+          <FeatureCard 
+            icon="📊"
+            title="Báo Cáo Thống Kê" 
+            description="Xem báo cáo tổng quan về tình hình kinh doanh, doanh thu và công nợ."
+            link="/baocao"
           />
         </div>
       </section>
       
       <section className="py-16 px-4 md:px-8 bg-gray-50 dark:bg-gray-900">
         <div className="max-w-screen-xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">Phòng Trọ Nổi Bật</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <RoomCard 
-              image="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=2940&auto=format&fit=crop"
-              title="Phòng trọ cao cấp Quận 1"
-              price="4.500.000đ/tháng"
-              location="Quận 1, TP. Trà VinhVinh"
-              area="25m²"
-              rating={4.8}
-            />
-            <RoomCard 
-              image="https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=2940&auto=format&fit=crop"
-              title="Phòng trọ gần ĐH Trà Vinh"
-              price="3.200.000đ/tháng"
-              location="Quận 2, TP. Trà Vinh"
-              area="20m²"
-              rating={4.5}
-            />
-            <RoomCard 
-              image="https://images.unsplash.com/photo-1505873242700-f289a29e1e0f?q=80&w=2940&auto=format&fit=crop"
-              title="Phòng trọ mới"
-              price="3.800.000đ/tháng"
-              location="Quận 3, Trà Vinh"
-              area="22m²"
-              rating={4.7}
-            />
-          </div>
-          <div className="text-center mt-10">
-            <a 
-              href="/rooms" 
-              className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-purple-600 hover:bg-purple-700"
-            >
-              Xem Tất Cả Phòng Trọ
-            </a>
+          <h2 className="text-3xl font-bold text-center mb-12">Ưu Điểm Nổi Bật</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md border border-gray-200 dark:border-gray-700">
+              <h3 className="text-xl font-bold mb-4 text-purple-600 dark:text-purple-400">Dễ dàng sử dụng</h3>
+              <ul className="space-y-2 text-gray-700 dark:text-gray-300">
+                <li className="flex items-start">
+                  <svg className="h-5 w-5 text-green-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Giao diện thân thiện, dễ sử dụng
+                </li>
+                <li className="flex items-start">
+                  <svg className="h-5 w-5 text-green-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Không cần kiến thức CNTT chuyên sâu
+                </li>
+                <li className="flex items-start">
+                  <svg className="h-5 w-5 text-green-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Hỗ trợ đầy đủ tiếng Việt
+                </li>
+              </ul>
+            </div>
+            <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md border border-gray-200 dark:border-gray-700">
+              <h3 className="text-xl font-bold mb-4 text-purple-600 dark:text-purple-400">Quản lý toàn diện</h3>
+              <ul className="space-y-2 text-gray-700 dark:text-gray-300">
+                <li className="flex items-start">
+                  <svg className="h-5 w-5 text-green-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Quản lý tất cả nghiệp vụ nhà trọ trong một hệ thống
+                </li>
+                <li className="flex items-start">
+                  <svg className="h-5 w-5 text-green-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Tự động tính toán hóa đơn
+                </li>
+                <li className="flex items-start">
+                  <svg className="h-5 w-5 text-green-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Thống kê, báo cáo doanh thu
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>
@@ -128,40 +150,41 @@ export default function Home() {
       <footer className="bg-gray-100 dark:bg-gray-800 py-12 px-4 md:px-8">
         <div className="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
-            <h3 className="font-bold text-lg mb-4">Website Đặt Phòng Trọ</h3>
+            <h3 className="font-bold text-lg mb-4">Hệ Thống Quản Lý Nhà Trọ</h3>
             <p className="text-gray-600 dark:text-gray-300">
-              Giải pháp tìm kiếm và đặt phòng trọ hiệu quả, tiện lợi cho mọi người.
+              Giải pháp toàn diện cho việc quản lý nhà trọ hiệu quả.
             </p>
           </div>
           <div>
-            <h3 className="font-bold text-lg mb-4">Liên Kết</h3>
+            <h3 className="font-bold text-lg mb-4">Quản Lý</h3>
             <ul className="space-y-2">
-              <li><a href="/" className="text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400">Trang Chủ</a></li>
-              <li><a href="/rooms" className="text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400">Phòng Trọ</a></li>
-              <li><a href="/about" className="text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400">Giới Thiệu</a></li>
-              <li><a href="/contact" className="text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400">Liên Hệ</a></li>
+              <li><Link href="/daytro" className="text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400">Dãy Trọ</Link></li>
+              <li><Link href="/nguoithue" className="text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400">Người Thuê</Link></li>
+              <li><Link href="/hopdong" className="text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400">Hợp Đồng</Link></li>
+              <li><Link href="/hoadon" className="text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400">Hóa Đơn</Link></li>
+              <li><Link href="/dichvu" className="text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400">Dịch Vụ</Link></li>
             </ul>
           </div>
           <div>
             <h3 className="font-bold text-lg mb-4">Hỗ Trợ</h3>
             <ul className="space-y-2">
-              <li><a href="/faq" className="text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400">FAQ</a></li>
-              <li><a href="/terms" className="text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400">Điều Khoản</a></li>
-              <li><a href="/privacy" className="text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400">Bảo Mật</a></li>
+              <li><Link href="/huongdan" className="text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400">Hướng Dẫn Sử Dụng</Link></li>
+              <li><Link href="/faq" className="text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400">Câu Hỏi Thường Gặp</Link></li>
+              <li><Link href="/lienhe" className="text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400">Liên Hệ Hỗ Trợ</Link></li>
             </ul>
           </div>
           <div>
             <h3 className="font-bold text-lg mb-4">Liên Hệ</h3>
             <ul className="space-y-2">
-              <li className="text-gray-600 dark:text-gray-300">Email: tranhunggit@gmail.com</li>
+              <li className="text-gray-600 dark:text-gray-300">Email: support@quanlynhatro.com</li>
               <li className="text-gray-600 dark:text-gray-300">Điện thoại: 0123 456 789</li>
-              <li className="text-gray-600 dark:text-gray-300">Địa chỉ: 123 Đường ABC, TP. Trà Vinh</li>
+              <li className="text-gray-600 dark:text-gray-300">Địa chỉ: 123 Đường ABC, Thành phố Trà Vinh</li>
             </ul>
           </div>
         </div>
         <div className="mt-8 pt-8 border-t border-gray-200 dark:border-gray-700">
           <p className="text-center text-gray-600 dark:text-gray-300">
-            © 2023 Website Đặt Phòng Trọ. Tất cả quyền được bảo lưu.
+            © {new Date().getFullYear()} Hệ Thống Quản Lý Nhà Trọ. Tất cả quyền được bảo lưu.
           </p>
         </div>
       </footer>
@@ -170,13 +193,23 @@ export default function Home() {
 }
 
 // Component cho thẻ tính năng
-function FeatureCard({ icon, title, description }: FeatureCardProps) {
+function FeatureCard({ icon, title, description, link }: FeatureCardProps) {
   return (
-    <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow">
-      <div className="text-4xl mb-4">{icon}</div>
-      <h3 className="text-xl font-bold mb-2">{title}</h3>
-      <p className="text-gray-600 dark:text-gray-300">{description}</p>
-    </div>
+    <Link href={link} className="block">
+      <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow h-full flex flex-col">
+        <div className="text-4xl mb-4">{icon}</div>
+        <h3 className="text-xl font-bold mb-2 text-gray-800 dark:text-white">{title}</h3>
+        <p className="text-gray-600 dark:text-gray-300 mb-4 flex-grow">{description}</p>
+        <div className="mt-auto">
+          <span className="text-purple-600 dark:text-purple-400 font-medium inline-flex items-center">
+            Xem chi tiết
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
+              <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+            </svg>
+          </span>
+        </div>
+      </div>
+    </Link>
   );
 }
 
