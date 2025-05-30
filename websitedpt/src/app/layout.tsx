@@ -55,8 +55,11 @@ export default function RootLayout({
                   </Link>
                 </div>
               </div>
-              <div className="hidden sm:ml-6 sm:flex sm:items-center">
-                <Link href="/login" className="text-gray-900 dark:text-gray-100 hover:text-purple-700 dark:hover:text-purple-300 px-3 py-2 rounded-md text-sm font-medium">
+              <div className="flex-1 flex items-center justify-center md:justify-end space-x-4">
+                <Link 
+                  href="/auth" 
+                  className="px-5 py-2 text-sm font-medium bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-lg shadow-md hover:shadow-lg transition-all"
+                >
                   Đăng nhập
                 </Link>
               </div>
